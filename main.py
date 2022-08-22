@@ -59,7 +59,7 @@ data = {"weather":{"value":wea,"color":get_random_color()},"city":{"value":city,
 
 i=0
 while i < len(template_id):
-template_id = template_id1[i]
-res = wm.send_template(user_id, template_id, data)
-print(res)
-i+=1
+  template_id = template_id1[i]
+  res = wm.send_template(user_id, template_id, data)
+  print(res)
+  i+=1
