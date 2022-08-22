@@ -15,9 +15,9 @@ birthday = os.environ['BIRTHDAY']
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
-user_id = os.environ["USER_ID"]
-template_id1 = os.environ["TEMPLATE_ID"]
-template_id2 = template_id1.split(',')
+user_id1 = os.environ["USER_ID"]
+user_id2 = user_id1.split(',')
+template_id = os.environ["TEMPLATE_ID"]
 
 def get_weekdays():
   week_list=["星期一","星期二","星期三","星期四","星期五","星期六","星期日"]
@@ -59,9 +59,9 @@ wea, temperature = get_weather()
 data = {"weather":{"value":wea,"color":get_random_color()},"city":{"value":city,"color":get_random_color()},"today":{"value":get_weekdays(),"color":get_random_color()},"temperature":{"value":temperature,"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()}}
 
 i=0
-global template_id
-while i < len(template_id2):
-  template_id = template_id2[i]
+global user_id
+while i < len(user_id2):
+  user_id = user_id2[i]
   res = wm.send_template(user_id, template_id, data)
   print(res)
   i+=1
