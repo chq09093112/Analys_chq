@@ -16,7 +16,8 @@ app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
 user_id = os.environ["USER_ID"]
-template_id1 = os.environ["TEMPLATE_ID"].split(',')
+template_id1 = os.environ["TEMPLATE_ID"]
+template_id2 = template_id1.split(',')
 
 def get_weekdays():
   week_list=["星期一","星期二","星期三","星期四","星期五","星期六","星期日"]
@@ -59,8 +60,8 @@ data = {"weather":{"value":wea,"color":get_random_color()},"city":{"value":city,
 
 i=0
 global template_id
-while i < len(template_id1):
-  template_id = template_id1[i]
+while i < len(template_id2):
+  template_id = template_id2[i]
   res = wm.send_template(user_id, template_id, data)
   print(res)
   i+=1
